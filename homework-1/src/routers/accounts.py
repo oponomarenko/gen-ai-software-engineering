@@ -15,7 +15,7 @@ def get_balance(account_id: str) -> BalanceResponse:
         if tx.fromAccount == account_id or tx.toAccount == account_id
     ]
     if not txs:
-        raise HTTPException(status_code=404, detail="Account not found")
+        raise HTTPException(status_code=404, detail={"error": "Account not found"})
 
     balance = 0.0
     currency = txs[0].currency
