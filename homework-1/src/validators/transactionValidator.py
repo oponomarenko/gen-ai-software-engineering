@@ -1,6 +1,7 @@
 """Validation rules for transaction fields."""
 
 from decimal import Decimal
+from datetime import datetime
 
 import pycountry
 
@@ -20,4 +21,10 @@ def validate_amount(v: float) -> float:
 def validate_currency(v: str) -> str:
     if v not in VALID_CURRENCIES:
         raise ValueError("Invalid currency code")
+    return v
+
+
+def validate_timestamp(v: datetime | None) -> datetime | None:
+    if v is not None and v.tzinfo is None:
+        raise ValueError("timestamp must include timezone info (e.g. 2024-01-15T10:30:00Z)")
     return v

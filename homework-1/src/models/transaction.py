@@ -8,6 +8,7 @@ from src.validators.transactionValidator import (
     VALID_CURRENCIES,
     validate_amount,
     validate_currency,
+    validate_timestamp,
 )
 
 
@@ -46,6 +47,11 @@ class TransactionCreate(BaseModel):
     @classmethod
     def check_currency(cls, v: str) -> str:
         return validate_currency(v)
+
+    @field_validator("timestamp")
+    @classmethod
+    def check_timestamp(cls, v: datetime | None) -> datetime | None:
+        return validate_timestamp(v)
 
 
 class Transaction(BaseModel):
