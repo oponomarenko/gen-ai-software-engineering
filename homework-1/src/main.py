@@ -2,7 +2,12 @@
 
 from fastapi import FastAPI
 
+from src.routers import accounts, transactions
+
 app = FastAPI(title="Banking Transactions API")
+
+app.include_router(transactions.router)
+app.include_router(accounts.router)
 
 
 @app.get("/health")
