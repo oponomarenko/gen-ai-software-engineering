@@ -17,7 +17,22 @@ def _validate_account_id(account_id: str) -> None:
         )
 
 
-@router.get("/{account_id}/balance", response_model=BalanceResponse)
+@router.get(
+    "/{account_id}/balance",
+    response_model=BalanceResponse,
+    summary="Get account balance",
+    description=(
+        "Return the current balance for an account, broken down by currency. "
+        "Balance is computed as the sum of inflows minus outflows across all `completed` transactions. "
+        "Pending or failed transactions are excluded. "
+        "Returns 404 if the account has no transactions on record."
+    ),
+    responses={
+        200: {"description": "Account balance per currency"},
+        400: {"description": "Invalid account ID format — must match `ACC-XXXXX`"},
+        404: {"description": "Account not found — no transactions recorded for this account ID"},
+    },
+)
 def get_balance(account_id: str) -> BalanceResponse:
     _validate_account_id(account_id)
     txs = [
@@ -44,7 +59,23 @@ def get_balance(account_id: str) -> BalanceResponse:
     )
 
 
-@router.get("/{account_id}/summary", response_model=SummaryResponse)
+@router.get(
+    "/{account_id}/summary",
+    response_model=SummaryResponse,
+    summary="Get account summary",
+    description=(
+        "Return an activity summary for an account, broken down by currency. "
+        "Includes total deposits, total withdrawals, total transaction count, "
+        "and the date of the most recent transaction. "
+        "Only `completed` transactions count toward deposit and withdrawal totals. "
+        "Returns 404 if the account has no transactions on record."
+    ),
+    responses={
+        200: {"description": "Account activity summary"},
+        400: {"description": "Invalid account ID format — must match `ACC-XXXXX`"},
+        404: {"description": "Account not found — no transactions recorded for this account ID"},
+    },
+)
 def get_summary(account_id: str) -> SummaryResponse:
     _validate_account_id(account_id)
     txs = [

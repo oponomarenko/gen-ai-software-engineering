@@ -1,7 +1,7 @@
 from datetime import datetime
 from enum import Enum
 
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, Field, field_validator
 
 from src.validators.accountValidator import validate_account_id
 from src.validators.transactionValidator import (
@@ -25,13 +25,20 @@ class TransactionStatus(str, Enum):
 
 
 class TransactionCreate(BaseModel):
-    fromAccount: str
-    toAccount: str
-    amount: float
-    currency: str
-    type: TransactionType
-    timestamp: datetime | None = None
-    status: TransactionStatus = TransactionStatus.completed
+    fromAccount: str = Field(description="Sender account ID. Must match pattern ACC-XXXXX.", example="ACC-SRC01")
+    toAccount: str = Field(description="Receiver account ID. Must match pattern ACC-XXXXX.", example="ACC-DST01")
+    amount: float = Field(description="Transaction amount. Must be positive with at most 2 decimal places.", example=250.00)
+    currency: str = Field(description="ISO 4217 currency code (e.g. USD, EUR, GBP).", example="USD")
+    type: TransactionType = Field(description="Transaction type: deposit, withdrawal, or transfer.")
+    timestamp: datetime | None = Field(
+        default=None,
+        description="Transaction timestamp in ISO 8601 format. Defaults to the current UTC time if omitted.",
+        example="2024-01-15T10:30:00Z",
+    )
+    status: TransactionStatus = Field(
+        default=TransactionStatus.completed,
+        description="Transaction status. Defaults to `completed` if omitted.",
+    )
 
     @field_validator("amount")
     @classmethod
@@ -55,11 +62,11 @@ class TransactionCreate(BaseModel):
 
 
 class Transaction(BaseModel):
-    id: str
-    fromAccount: str
-    toAccount: str
-    amount: float
-    currency: str
-    type: TransactionType
-    timestamp: datetime
-    status: TransactionStatus
+    id: str = Field(description="Auto-generated UUID uniquely identifying the transaction.", example="3fa85f64-5717-4562-b3fc-2c963f66afa6")
+    fromAccount: str = Field(description="Sender account ID.", example="ACC-SRC01")
+    toAccount: str = Field(description="Receiver account ID.", example="ACC-DST01")
+    amount: float = Field(description="Transaction amount.", example=250.00)
+    currency: str = Field(description="ISO 4217 currency code.", example="USD")
+    type: TransactionType = Field(description="Transaction type.")
+    timestamp: datetime = Field(description="Transaction timestamp (UTC).", example="2024-01-15T10:30:00Z")
+    status: TransactionStatus = Field(description="Transaction status.")
