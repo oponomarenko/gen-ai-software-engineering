@@ -3,8 +3,8 @@ from enum import Enum
 
 from pydantic import BaseModel, field_validator
 
+from src.validators.accountValidator import validate_account_id
 from src.validators.transactionValidator import (
-    ACCOUNT_RE,
     VALID_CURRENCIES,
     validate_amount,
     validate_currency,
@@ -40,9 +40,7 @@ class TransactionCreate(BaseModel):
     @field_validator("fromAccount", "toAccount")
     @classmethod
     def check_account_format(cls, v: str) -> str:
-        if not ACCOUNT_RE.match(v):
-            raise ValueError("Account ID must match pattern ACC-XXXXX (5 uppercase alphanumeric characters)")
-        return v
+        return validate_account_id(v)
 
     @field_validator("currency")
     @classmethod

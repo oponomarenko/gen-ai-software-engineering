@@ -1,6 +1,5 @@
 """Validation rules for transaction fields."""
 
-import re
 from decimal import Decimal
 
 import pycountry
@@ -8,8 +7,6 @@ import pycountry
 VALID_CURRENCIES: frozenset[str] = frozenset(
     c.alpha_3 for c in pycountry.currencies
 )
-
-ACCOUNT_RE = re.compile(r"^ACC-[A-Z0-9]{5}$")
 
 
 def validate_amount(v: float) -> float:

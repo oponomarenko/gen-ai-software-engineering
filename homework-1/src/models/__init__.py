@@ -1,4 +1,4 @@
-from src.models.account import BalanceResponse
+from src.models.account import BalanceResponse, CurrencySummary, SummaryResponse
 from src.models.transaction import (
     Transaction,
     TransactionCreate,
@@ -8,6 +8,8 @@ from src.models.transaction import (
 
 __all__ = [
     "BalanceResponse",
+    "CurrencySummary",
+    "SummaryResponse",
     "Transaction",
     "TransactionCreate",
     "TransactionStatus",
