@@ -4,9 +4,7 @@
 **Storage:** In-memory (plain dict, no database)  
 **Optional Feature Selected:** Option A — Transaction Summary Endpoint  
 **Runtime (primary):** Docker / Docker Compose  
-**Runtime (secondary):** Local Python virtualenv  
-
-> **Session walkthrough:** The full step-by-step Claude Code interaction that produced this plan and the entire implementation is documented in [UI_INTERACTION_WALKTHROUGH.md](UI_INTERACTION_WALKTHROUGH.md).
+**Runtime (secondary):** Local Python virtualenv
 
 ---
 
