@@ -1,7 +1,7 @@
 # 🏦 Homework 1: Banking Transactions API
 
 > **Student Name**: Oleksandr Ponomarenko
-> **Date Submitted**:
+> **Date Submitted**: 2026-06-29
 > **AI Tools Used**: Claude Code (claude-sonnet-4-6)
 
 A RESTful banking transactions API built with **FastAPI** and **Pydantic v2**, running in Docker.

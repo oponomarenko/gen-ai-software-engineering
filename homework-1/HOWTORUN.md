@@ -31,12 +31,6 @@ docker compose down
 **Prerequisites:** Python 3.11+
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn src.main:app --reload
-
-# Or use the convenience script
 ./demo/run-local.sh
 ```
 
@@ -51,6 +45,6 @@ Ctrl+C
 
 ## Sample Requests
 
-- **[demo/sample-requests.http](demo/sample-requests.http)** — VS Code REST Client file covering all endpoints and edge cases. Works with either startup method — both expose the API on port 8000.
+- **[demo/sample-requests.http](demo/sample-requests.http)** — HTTP request file covering all endpoints and edge cases. Requires the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for VS Code (`humao.rest-client`). Once installed, open the file and click **Send Request** above any request block. Works with either startup method — both expose the API on port 8000.
 - **[demo/curl-examples.sh](demo/curl-examples.sh)** — Curl commands for all endpoints. Run the whole script (`./demo/curl-examples.sh`) or copy individual commands. Requires `curl`; `jq` is optional for pretty-printing.
 - **[demo/sample-data.json](demo/sample-data.json)** — Reference JSON for pre-built transaction objects.
