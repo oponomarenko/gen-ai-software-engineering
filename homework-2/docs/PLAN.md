@@ -214,7 +214,14 @@ the minimum required per file; add more only if coverage demands it.
   considerations. Claims spot-checked against code (routes, defusedxml, CORS,
   repo lock, `auto_classify` flag); fixed one drift — frontend `pages/` dir
   doesn't exist, page views live in `components/`.
-- [ ] `docs/TESTING_GUIDE.md`: test-pyramid Mermaid, how to run, fixture locations, manual checklist, benchmark table.
+- [x] `docs/TESTING_GUIDE.md`: test-pyramid Mermaid, how to run, fixture locations, manual checklist, benchmark table. ✅
+  Written for QA Engineers: Mermaid test pyramid (4 layers, 64 tests), run commands
+  (local + coverage gate + docker-compose), suite overview table cross-checked
+  against `pytest --collect-only` (64 tests, 8 files), sample vs. fixture data
+  locations, 40+ item manual checklist (CRUD, import, classification, security/XXE,
+  frontend, cross-cutting), the Phase 9 benchmark table, and a coverage-gaps table
+  (94.77% measured, verified via a live `pytest --cov` run) so QA doesn't mistake
+  defensive-branch gaps for untested features.
 - [ ] Note which AI model produced which doc.
 - **Exit criteria:** all four docs complete; ≥3 Mermaid diagrams total across docs.
 - **Covers:** Task 4.
@@ -259,7 +266,7 @@ the minimum required per file; add more only if coverage demands it.
 | 7 — Frontend | ✅ | Full React SPA: list/CRUD/import/detail/classification, responsive, API-driven, toast notifications |
 | 8 — Tests & coverage | ✅ | 54 tests (6 files) green, 93% coverage, screenshot saved |
 | 9 — Integration & perf | ✅ | 10 tests (5 integration + 5 performance) green; benchmark table recorded; fixed dead manual-override wiring |
-| 10 — Documentation | 🟡 | API_REFERENCE.md and ARCHITECTURE.md complete (architect-reviewed vs Task 4); TESTING_GUIDE.md + AI-model notes remain |
+| 10 — Documentation | 🟡 | README, API_REFERENCE.md, ARCHITECTURE.md, and TESTING_GUIDE.md complete; AI-model-per-doc note still remains |
 | 11 — Final verification | ⬜ | |
 
 ---
