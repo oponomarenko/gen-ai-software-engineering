@@ -34,8 +34,6 @@ class XmlTicketParser(TicketParser):
             ticket_elements = [root]
         else:
             ticket_elements = root.findall("ticket")
-            if not ticket_elements:
-                raise ParseError("XML must have a root <tickets> element containing <ticket> elements")
 
         records: list[dict[str, Any]] = []
         for ticket_el in ticket_elements:

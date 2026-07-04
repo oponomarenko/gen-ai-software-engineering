@@ -101,13 +101,13 @@ invalid files).
 - **Exit criteria:** full agent workflow runs against the live API with no hardcoded ticket data. ✅
 - **Covers:** Task 5.
 
-## Phase 8 — Automated Tests & Coverage (>85%)  ⬜
+## Phase 8 — Automated Tests & Coverage (>85%)  ✅
 **Goal:** the required unit/API/parsing/classification suite, green, over the 85% threshold.
 
 **Test-file quota (from TASKS.md Task 3):** 6 files, **46 tests** total. Counts below are
 the minimum required per file; add more only if coverage demands it.
 
-- [ ] **`test_ticket_model` — 9 tests** (Pydantic validation, Phase 2):
+- [x] **`test_ticket_model` — 9 tests** (Pydantic validation, Phase 2):
   1. Valid ticket builds with all fields populated.
   2. `subject` length boundaries — reject empty and >200 chars, accept 1 & 200.
   3. `description` length boundaries — reject <10 and >2000, accept 10 & 2000.
@@ -117,7 +117,7 @@ the minimum required per file; add more only if coverage demands it.
   7. Invalid `status` enum value rejected.
   8. `metadata` validation — bad `source`/`device_type` enum rejected.
   9. Defaults & nullables — `resolved_at`/`assigned_to` optional, `tags` defaults to `[]`, timestamps auto-set.
-- [ ] **`test_ticket_api` — 11 tests** (endpoints, Phase 3):
+- [x] **`test_ticket_api` — 11 tests** (endpoints, Phase 3):
   1. `POST /tickets` → 201 with generated id + timestamps.
   2. `POST /tickets?auto_classify=true` populates `classification`.
   3. `POST /tickets` invalid payload → 422 with field errors.
@@ -129,34 +129,36 @@ the minimum required per file; add more only if coverage demands it.
   9. `GET /tickets/{id}` → 404 for unknown id.
   10. `PUT /tickets/{id}` → 200 updates; unknown id → 404.
   11. `DELETE /tickets/{id}` → 204; unknown id → 404.
-- [ ] **`test_import_csv` — 6 tests** (Phase 4):
+- [x] **`test_import_csv` — 6 tests** (Phase 4):
   1. Valid CSV → summary `total==successful`, `failed==0`.
   2. Mixed file → valid rows imported, invalid rows reported per-record with error detail.
   3. Malformed CSV structure → 400 with meaningful message (not 500).
   4. Empty file → summary `total==0`.
   5. Missing required column → per-record validation errors.
   6. Auto-classification applied to imported rows.
-- [ ] **`test_import_json` — 5 tests** (Phase 4):
+- [x] **`test_import_json` — 5 tests** (Phase 4):
   1. Valid JSON array → all successful.
   2. Invalid JSON syntax → 400 meaningful error.
   3. Per-record validation errors reported (bad email/length/enum).
   4. Wrong shape (object instead of array / missing fields) → 400 or per-record error.
   5. Empty array → summary `total==0`.
-- [ ] **`test_import_xml` — 5 tests** (Phase 4):
+- [x] **`test_import_xml` — 5 tests** (Phase 4):
   1. Valid XML → all successful.
   2. Malformed XML → 400 meaningful error.
   3. Per-record validation errors reported.
   4. **Security:** XXE / external-entity payload is neutralized by `defusedxml` (no file read, safe rejection).
   5. Empty document / no `<ticket>` records → summary `total==0`.
-- [ ] **`test_categorization` — 10 tests** (rule engine, Phase 5):
+- [x] **`test_categorization` — 10 tests** (rule engine, Phase 5):
   1–6. Correct category for each of the 6 categories (`account_access`, `technical_issue`, `billing_question`, `feature_request`, `bug_report`, `other`).
   7. Urgent priority keywords (`can't access`, `critical`, `production down`, `security`).
   8. High priority keywords (`important`, `blocking`, `asap`).
   9. Low keywords (`minor`, `cosmetic`, `suggestion`) and Medium as default fallback.
   10. Result completeness — `confidence` in [0,1], non-empty `reasoning`, correct `keywords_found`, and manual override preserved (not overwritten).
-- [ ] `pytest-cov` config with `--cov=app --cov-report=term-missing --cov-fail-under=85`.
-- [ ] Capture coverage screenshot → `docs/screenshots/test_coverage.png`.
+- [x] `pytest-cov` config with `--cov=app --cov-report=term-missing --cov-fail-under=85`.
+- [x] Capture coverage screenshot → `docs/screenshots/test_coverage.png`.
 - **Exit criteria:** all 46 tests green; overall coverage **>85%** reported; screenshot saved.
+  ✅ 54 tests pass (46+ required plus parametrized extras), coverage **93%**, screenshot saved to
+  `docs/screenshots/test_coverage.png`.
 - **Covers:** Task 3.
 
 ## Phase 9 — Integration & Performance Tests  ⬜
@@ -230,7 +232,7 @@ the minimum required per file; add more only if coverage demands it.
 | 5 — Classification | ✅ | Rule engine + ClassificationService, wired into create/import/auto-classify |
 | 6 — Sample data | ✅ | 50 CSV / 20 JSON / 30 XML + 6 invalid files, all verified against the live API |
 | 7 — Frontend | ✅ | Full React SPA: list/CRUD/import/detail/classification, responsive, API-driven, toast notifications |
-| 8 — Tests & coverage | ⬜ | |
+| 8 — Tests & coverage | ✅ | 54 tests (6 files) green, 93% coverage, screenshot saved |
 | 9 — Integration & perf | ⬜ | |
 | 10 — Documentation | ⬜ | ARCHITECTURE.md drafted |
 | 11 — Final verification | ⬜ | |

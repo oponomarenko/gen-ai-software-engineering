@@ -14,6 +14,13 @@
       "runtimeArgs": ["run", "dev"],
       "cwd": "src/frontend",
       "port": 5173
+    },
+    {
+      "name": "coverage-report",
+      "runtimeExecutable": ".venv/bin/python",
+      "runtimeArgs": ["-m", "http.server", "8099", "--directory", "htmlcov"],
+      "cwd": "src/backend",
+      "port": 8099
     }
   ]
 }
