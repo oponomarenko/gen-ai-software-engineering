@@ -36,62 +36,57 @@ invalid files).
 
 ---
 
-## Phase 1 — Project Scaffolding & Tooling  ⬜
+## Phase 1 — Project Scaffolding & Tooling  ✅
 **Goal:** runnable skeletons for both apps and a green CI-style test command.
 
-- [ ] Backend skeleton in `src/backend`: FastAPI app, `main.py`, `/health`, package layout from ARCHITECTURE §7.
-- [ ] Dependency + tooling setup: `pyproject.toml`/`requirements.txt` (fastapi, uvicorn, pydantic v2, python-multipart, defusedxml, pytest, pytest-cov, httpx), ruff/black optional.
-- [ ] Frontend skeleton in `src/frontend`: Vite + React + TS, base routing, API base-URL config via env.
-- [ ] `docker-compose.yml` (backend + frontend) and per-app `Dockerfile`s.
-- [ ] `.gitignore`, `.env.example`, CORS config.
-- **Exit criteria:** `uvicorn` serves `/health`; `vite` serves a placeholder page; `docker-compose up` starts both; `pytest` runs (0 tests OK).
+- [x] Backend skeleton in `src/backend`: FastAPI app, `main.py`, `/health`, package layout from ARCHITECTURE §7.
+- [x] Dependency + tooling setup: `pyproject.toml`/`requirements.txt` (fastapi, uvicorn, pydantic v2, python-multipart, defusedxml, pytest, pytest-cov, httpx), ruff/black optional.
+- [x] Frontend skeleton in `src/frontend`: Vite + React + TS, base routing, API base-URL config via env.
+- [x] `docker-compose.yml` (backend + frontend) and per-app `Dockerfile`s.
+- [x] `.gitignore`, `.env.example`, CORS config.
+- **Exit criteria:** `uvicorn` serves `/health`; `vite` serves a placeholder page; `docker-compose up` starts both; `pytest` runs (0 tests OK). ✅ Verified manually via preview servers + local `pytest --cov`.
 
-## Phase 2 — Domain Models & Repository  ⬜
+## Phase 2 — Domain Models & Repository  ✅
 **Goal:** validated data model and storage seam.
 
-- [ ] Enums: Category, Priority, Status, Source, DeviceType.
-- [ ] Pydantic models: `TicketMetadata`, `ClassificationResult`, `Ticket`, `TicketCreate`, `TicketUpdate`, `ImportSummary`.
-- [ ] Validation: email format, subject 1–200, description 10–2000, enum membership, timestamps.
-- [ ] `TicketRepository` interface + thread-safe `InMemoryTicketRepository`.
-- **Exit criteria:** models validate/reject sample inputs; repository CRUD works in a REPL/unit test.
-- **Covers:** Task 1 (model), feeds Task 3 `test_ticket_model` (9 tests).
+- [x] Enums: Category, Priority, Status, Source, DeviceType.
+- [x] Pydantic models: `TicketMetadata`, `ClassificationResult`, `Ticket`, `TicketCreate`, `TicketUpdate`, `ImportSummary`.
+- [x] Validation: email format, subject 1–200, description 10–2000, enum membership, timestamps.
+- [x] `TicketRepository` interface + thread-safe `InMemoryTicketRepository`.
+- **Exit criteria:** models validate/reject sample inputs; repository CRUD works in a REPL/unit test. ✅ Verified via ad-hoc script.
 
-## Phase 3 — Ticket CRUD API  ⬜
+## Phase 3 — Ticket CRUD API  ✅
 **Goal:** the core REST endpoints.
 
-- [ ] `TicketService` CRUD + filtering (category/priority/status, combinable).
-- [ ] Routers: POST/GET(list)/GET(id)/PUT/DELETE with status codes 201/200/200/200/204.
-- [ ] Central error handling → 400/404/422 with structured messages.
-- **Exit criteria:** all CRUD + filter endpoints work via `/docs` and curl.
-- **Covers:** Task 1 (endpoints), feeds `test_ticket_api` (11 tests).
+- [x] `TicketService` CRUD + filtering (category/priority/status, combinable).
+- [x] Routers: POST/GET(list)/GET(id)/PUT/DELETE with status codes 201/200/200/200/204.
+- [x] Central error handling → 400/404/422 with structured messages.
+- **Exit criteria:** all CRUD + filter endpoints work via `/docs` and curl. ✅ Verified: `/health`, `/docs` (200), ticket create/list smoke-tested.
 
-## Phase 4 — Multi-Format Import  ⬜
+## Phase 4 — Multi-Format Import  ✅
 **Goal:** bulk import with graceful error reporting.
 
-- [ ] Parser interface + `csv`, `json`, `xml` parsers (XML via `defusedxml`).
-- [ ] `ImportService`: dispatch by format, per-record validation, aggregate `ImportSummary` (total/successful/failed + error detail); malformed-file handling.
-- [ ] `POST /tickets/import` multipart endpoint (format from extension/content-type).
-- **Exit criteria:** importing sample + invalid files returns a correct summary; malformed files give meaningful 400s, not 500s.
-- **Covers:** Task 1 (import), feeds `test_import_csv` (6), `test_import_json` (5), `test_import_xml` (5).
+- [x] Parser interface + `csv`, `json`, `xml` parsers (XML via `defusedxml`).
+- [x] `ImportService`: dispatch by format, per-record validation, aggregate `ImportSummary` (total/successful/failed + error detail); malformed-file handling.
+- [x] `POST /tickets/import` multipart endpoint (format from extension/content-type).
+- **Exit criteria:** importing sample + invalid files returns a correct summary; malformed files give meaningful 400s, not 500s. ✅ Verified against `sample_data/` and `sample_data/invalid/`.
 
-## Phase 5 — Auto-Classification Engine  ⬜
+## Phase 5 — Auto-Classification Engine  ✅
 **Goal:** deterministic category + priority with explainability.
 
-- [ ] Keyword config for 6 categories + priority rules from TASKS.md.
-- [ ] Rule engine → `ClassificationResult` (category, priority, confidence 0–1, reasoning, keywords_found).
-- [ ] `ClassificationService` + decision logging; manual override support.
-- [ ] `POST /tickets/{id}/auto-classify`; `?auto_classify=true` on create; wire into import (§6.1).
-- **Exit criteria:** representative tickets classify to expected category/priority with sensible confidence + reasoning.
-- **Covers:** Task 2, feeds `test_categorization` (10 tests).
+- [x] Keyword config for 6 categories + priority rules from TASKS.md.
+- [x] Rule engine → `ClassificationResult` (category, priority, confidence 0–1, reasoning, keywords_found).
+- [x] `ClassificationService` + decision logging; manual override support.
+- [x] `POST /tickets/{id}/auto-classify`; `?auto_classify=true` on create; wire into import (§6.1).
+- **Exit criteria:** representative tickets classify to expected category/priority with sensible confidence + reasoning. ✅ Verified with sample tickets end-to-end.
 
-## Phase 6 — Sample & Fixture Data  ⬜
+## Phase 6 — Sample & Fixture Data  ✅
 **Goal:** realistic datasets for demos and tests.
 
-- [ ] `sample_data/sample_tickets.csv` (50), `.json` (20), `.xml` (30).
-- [ ] `sample_data/invalid/` negative-test files (bad email, out-of-range lengths, bad enums, malformed CSV/JSON/XML).
-- [ ] Mirror minimal fixtures under `src/tests/fixtures/`.
-- **Exit criteria:** all sample files import successfully; invalid files fail with clear errors.
-- **Covers:** Deliverable 4.
+- [x] `sample_data/sample_tickets.csv` (50), `.json` (20), `.xml` (30).
+- [x] `sample_data/invalid/` negative-test files (bad email, out-of-range lengths, bad enums, malformed CSV/JSON/XML).
+- [x] Mirror minimal fixtures under `src/tests/fixtures/`.
+- **Exit criteria:** all sample files import successfully; invalid files fail with clear errors. ✅ Verified: 50/50, 20/20, 30/30 import; all 6 invalid files fail with 400 or per-record errors as expected.
 
 ## Phase 7 — Frontend Application  ⬜
 **Goal:** agent-facing SPA, API-driven, responsive.
@@ -166,13 +161,13 @@ invalid files).
 
 | Phase | Status | Notes |
 |-------|--------|-------|
-| 1 — Scaffolding | ⬜ | |
-| 2 — Models & Repository | ⬜ | |
-| 3 — CRUD API | ⬜ | |
-| 4 — Import | ⬜ | |
-| 5 — Classification | ⬜ | |
-| 6 — Sample data | ⬜ | |
-| 7 — Frontend | ⬜ | |
+| 1 — Scaffolding | ✅ | FastAPI + Vite/React/TS skeletons, docker-compose, Dockerfiles verified locally |
+| 2 — Models & Repository | ✅ | Pydantic v2 models + thread-safe in-memory repo |
+| 3 — CRUD API | ✅ | Full CRUD + combinable filters, 400/404/422 handling |
+| 4 — Import | ✅ | CSV/JSON/XML parsers + ImportService, defusedxml for XML |
+| 5 — Classification | ✅ | Rule engine + ClassificationService, wired into create/import/auto-classify |
+| 6 — Sample data | ✅ | 50 CSV / 20 JSON / 30 XML + 6 invalid files, all verified against the live API |
+| 7 — Frontend | ⬜ | Vite skeleton only so far; full SPA (list/CRUD/import/detail) still pending |
 | 8 — Tests & coverage | ⬜ | |
 | 9 — Integration & perf | ⬜ | |
 | 10 — Documentation | ⬜ | ARCHITECTURE.md drafted |

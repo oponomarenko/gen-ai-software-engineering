@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tickets>
+  <ticket>
+    <customer_id>CUST-3000</customer_id>
+    <customer_email>heidi.garcia2000@example.com</customer_email>
+    <customer_name>Heidi Garcia</customer_name>
+    <subject>Request for CSV export</subject>
+    <description>Could you add support for exporting reports as CSV? This feature request would help our workflow a lot.</description>
+    <category>feature_request</category>
+    <priority>medium</priority>
+    <status>resolved</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>api</source>
+      <browser>Firefox</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3001</customer_id>
+    <customer_email>karl.moore2001@example.com</customer_email>
+    <customer_name>Karl Moore</customer_name>
+    <subject>Getting a 500 error on checkout</subject>
+    <description>I keep getting a 500 error when trying to check out, this is blocking our purchase and it's important to fix asap.</description>
+    <category>technical_issue</category>
+    <priority>high</priority>
+    <status>new</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <browser>Firefox</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3002</customer_id>
+    <customer_email>eve.brown2002@example.com</customer_email>
+    <customer_name>Eve Brown</customer_name>
+    <subject>Found a bug in the search filter</subject>
+    <description>I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.</description>
+    <category>bug_report</category>
+    <priority>high</priority>
+    <status>new</status>
+    <tags>
+      <tag>beta-user</tag>
+    </tags>
+    <metadata>
+      <source>api</source>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+</tickets>

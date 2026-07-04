@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tickets>
+  <ticket>
+    <customer_id>CUST-9003</customer_id>
+    <customer_email>test@example.com</customer_email>
+    <customer_name>Test User</customer_name>
+    <subject>Weird category</subject>
+    <description>This ticket has an invalid category value on purpose.</description>
+    <category>not_a_real_category</category>
+  </ticket>
+</tickets>

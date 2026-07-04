@@ -1,0 +1,4 @@
+customer_id,customer_email,customer_name,subject,description,category,priority,status,tags,metadata.source,metadata.browser,metadata.device_type
+CUST-1000,dave.smith0@example.com,Dave Smith,Request for CSV export,Could you add support for exporting reports as CSV? This feature request would help our workflow a lot.,feature_request,medium,waiting_customer,,email,Firefox,tablet
+CUST-1001,rosa.johnson1@example.com,Rosa Johnson,Forgot my password,"I forgot my password and the reset email never arrived, can you help me sign in again?",account_access,medium,closed,vip,web_form,Chrome,desktop
+CUST-1002,quinn.taylor2@example.com,Quinn Taylor,Production down for our team,"Our production environment is down and nothing loads, this is critical and affecting the whole team.",technical_issue,urgent,new,follow-up|enterprise,chat,Firefox,mobile

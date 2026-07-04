@@ -333,3 +333,4 @@ homework-2/
 | Date | Change |
 |------|--------|
 | 2026-07-04 | Initial architecture. Decisions locked: in-memory store, rule-based classification, local dev + docker-compose. |
+| 2026-07-04 | Phases 1–6 implemented: backend scaffolding, models/repository, CRUD API, CSV/JSON/XML import, rule-based classification engine, and sample/fixture data. Frontend is still a bare Vite skeleton (Phase 7 not started). |

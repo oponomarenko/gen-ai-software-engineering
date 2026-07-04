@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tickets>
+  <ticket>
+    <customer_id>CUST-3000</customer_id>
+    <customer_email>heidi.garcia2000@example.com</customer_email>
+    <customer_name>Heidi Garcia</customer_name>
+    <subject>Request for CSV export</subject>
+    <description>Could you add support for exporting reports as CSV? This feature request would help our workflow a lot.</description>
+    <category>feature_request</category>
+    <priority>medium</priority>
+    <status>resolved</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>api</source>
+      <browser>Firefox</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3001</customer_id>
+    <customer_email>karl.moore2001@example.com</customer_email>
+    <customer_name>Karl Moore</customer_name>
+    <subject>Getting a 500 error on checkout</subject>
+    <description>I keep getting a 500 error when trying to check out, this is blocking our purchase and it's important to fix asap.</description>
+    <category>technical_issue</category>
+    <priority>high</priority>
+    <status>new</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <browser>Firefox</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3002</customer_id>
+    <customer_email>eve.brown2002@example.com</customer_email>
+    <customer_name>Eve Brown</customer_name>
+    <subject>Found a bug in the search filter</subject>
+    <description>I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.</description>
+    <category>bug_report</category>
+    <priority>high</priority>
+    <status>new</status>
+    <tags>
+      <tag>beta-user</tag>
+    </tags>
+    <metadata>
+      <source>api</source>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3003</customer_id>
+    <customer_email>bob.brown2003@example.com</customer_email>
+    <customer_name>Bob Brown</customer_name>
+    <subject>Question about my invoice</subject>
+    <description>I have a question about a charge on my latest invoice, could you clarify what it was for?</description>
+    <category>billing_question</category>
+    <priority>medium</priority>
+    <status>resolved</status>
+    <tags>
+      <tag>enterprise</tag>
+    </tags>
+    <metadata>
+      <source>web_form</source>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3004</customer_id>
+    <customer_email>alice.davis2004@example.com</customer_email>
+    <customer_name>Alice Davis</customer_name>
+    <subject>Double charged for subscription</subject>
+    <description>I was charged twice for my monthly subscription this billing cycle, this is important and needs a refund.</description>
+    <category>billing_question</category>
+    <priority>high</priority>
+    <status>waiting_customer</status>
+    <tags>
+      <tag>beta-user</tag>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3005</customer_id>
+    <customer_email>heidi.wilson2005@example.com</customer_email>
+    <customer_name>Heidi Wilson</customer_name>
+    <subject>Minor cosmetic issue on profile page</subject>
+    <description>There is a minor cosmetic issue on the profile page where the avatar is slightly misaligned, just a suggestion to fix it.</description>
+    <category>other</category>
+    <priority>low</priority>
+    <status>in_progress</status>
+    <tags>
+      <tag>beta-user</tag>
+    </tags>
+    <metadata>
+      <source>chat</source>
+      <browser>Chrome</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3006</customer_id>
+    <customer_email>mona.lee2006@example.com</customer_email>
+    <customer_name>Mona Lee</customer_name>
+    <subject>Getting a 500 error on checkout</subject>
+    <description>I keep getting a 500 error when trying to check out, this is blocking our purchase and it's important to fix asap.</description>
+    <category>technical_issue</category>
+    <priority>high</priority>
+    <status>resolved</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3007</customer_id>
+    <customer_email>mona.taylor2007@example.com</customer_email>
+    <customer_name>Mona Taylor</customer_name>
+    <subject>Minor cosmetic issue on profile page</subject>
+    <description>There is a minor cosmetic issue on the profile page where the avatar is slightly misaligned, just a suggestion to fix it.</description>
+    <category>other</category>
+    <priority>low</priority>
+    <status>closed</status>
+    <tags>
+      <tag>vip</tag>
+      <tag>trial</tag>
+    </tags>
+    <metadata>
+      <source>chat</source>
+      <browser>Firefox</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3008</customer_id>
+    <customer_email>bob.garcia2008@example.com</customer_email>
+    <customer_name>Bob Garcia</customer_name>
+    <subject>2FA code not working</subject>
+    <description>My two-factor authentication code is not being accepted and this is blocking me from logging in, it's important.</description>
+    <category>account_access</category>
+    <priority>high</priority>
+    <status>resolved</status>
+    <tags>
+      <tag>follow-up</tag>
+    </tags>
+    <metadata>
+      <source>chat</source>
+      <browser>Safari</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3009</customer_id>
+    <customer_email>mona.garcia2009@example.com</customer_email>
+    <customer_name>Mona Garcia</customer_name>
+    <subject>Regression in the dashboard widget</subject>
+    <description>There is a regression in the dashboard widget after the last update, expected behavior was to show totals but it now shows zero.</description>
+    <category>bug_report</category>
+    <priority>medium</priority>
+    <status>resolved</status>
+    <tags>
+      <tag>vip</tag>
+    </tags>
+    <metadata>
+      <source>chat</source>
+      <browser>Chrome</browser>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3010</customer_id>
+    <customer_email>bob.davis2010@example.com</customer_email>
+    <customer_name>Bob Davis</customer_name>
+    <subject>Suggestion for billing page</subject>
+    <description>Just a minor suggestion, it would be nice if the billing page showed the next renewal date more clearly.</description>
+    <category>billing_question</category>
+    <priority>low</priority>
+    <status>in_progress</status>
+    <tags>
+      <tag>vip</tag>
+      <tag>trial</tag>
+    </tags>
+    <metadata>
+      <source>web_form</source>
+      <browser>Firefox</browser>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3011</customer_id>
+    <customer_email>alice.taylor2011@example.com</customer_email>
+    <customer_name>Alice Taylor</customer_name>
+    <subject>General feedback about the product</subject>
+    <description>I just wanted to share some general feedback about my overall experience with the product so far.</description>
+    <category>other</category>
+    <priority>medium</priority>
+    <status>in_progress</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <browser>Edge</browser>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3012</customer_id>
+    <customer_email>sam.brown2012@example.com</customer_email>
+    <customer_name>Sam Brown</customer_name>
+    <subject>Forgot my password</subject>
+    <description>I forgot my password and the reset email never arrived, can you help me sign in again?</description>
+    <category>account_access</category>
+    <priority>medium</priority>
+    <status>resolved</status>
+    <tags>
+      <tag>escalated</tag>
+      <tag>trial</tag>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3013</customer_id>
+    <customer_email>dave.lee2013@example.com</customer_email>
+    <customer_name>Dave Lee</customer_name>
+    <subject>Found a bug in the search filter</subject>
+    <description>I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.</description>
+    <category>bug_report</category>
+    <priority>high</priority>
+    <status>waiting_customer</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <browser>Chrome</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3014</customer_id>
+    <customer_email>mona.miller2014@example.com</customer_email>
+    <customer_name>Mona Miller</customer_name>
+    <subject>Add dark mode please</subject>
+    <description>It would be great if you could add a dark mode option, purely a cosmetic suggestion but many users want it.</description>
+    <category>feature_request</category>
+    <priority>low</priority>
+    <status>in_progress</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <browser>Firefox</browser>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3015</customer_id>
+    <customer_email>judy.taylor2015@example.com</customer_email>
+    <customer_name>Judy Taylor</customer_name>
+    <subject>Found a bug in the search filter</subject>
+    <description>I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.</description>
+    <category>bug_report</category>
+    <priority>high</priority>
+    <status>new</status>
+    <tags>
+      <tag>vip</tag>
+      <tag>escalated</tag>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <browser>Edge</browser>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3016</customer_id>
+    <customer_email>carol.moore2016@example.com</customer_email>
+    <customer_name>Carol Moore</customer_name>
+    <subject>Getting a 500 error on checkout</subject>
+    <description>I keep getting a 500 error when trying to check out, this is blocking our purchase and it's important to fix asap.</description>
+    <category>technical_issue</category>
+    <priority>high</priority>
+    <status>waiting_customer</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>chat</source>
+      <browser>Edge</browser>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3017</customer_id>
+    <customer_email>liam.wilson2017@example.com</customer_email>
+    <customer_name>Liam Wilson</customer_name>
+    <subject>Question about my invoice</subject>
+    <description>I have a question about a charge on my latest invoice, could you clarify what it was for?</description>
+    <category>billing_question</category>
+    <priority>medium</priority>
+    <status>in_progress</status>
+    <tags>
+      <tag>follow-up</tag>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <browser>Safari</browser>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3018</customer_id>
+    <customer_email>rosa.wilson2018@example.com</customer_email>
+    <customer_name>Rosa Wilson</customer_name>
+    <subject>Regression in the dashboard widget</subject>
+    <description>There is a regression in the dashboard widget after the last update, expected behavior was to show totals but it now shows zero.</description>
+    <category>bug_report</category>
+    <priority>medium</priority>
+    <status>resolved</status>
+    <tags>
+      <tag>trial</tag>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <browser>Safari</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3019</customer_id>
+    <customer_email>heidi.johnson2019@example.com</customer_email>
+    <customer_name>Heidi Johnson</customer_name>
+    <subject>General feedback about the product</subject>
+    <description>I just wanted to share some general feedback about my overall experience with the product so far.</description>
+    <category>other</category>
+    <priority>medium</priority>
+    <status>waiting_customer</status>
+    <tags>
+      <tag>follow-up</tag>
+    </tags>
+    <metadata>
+      <source>chat</source>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3020</customer_id>
+    <customer_email>mona.davis2020@example.com</customer_email>
+    <customer_name>Mona Davis</customer_name>
+    <subject>Request for CSV export</subject>
+    <description>Could you add support for exporting reports as CSV? This feature request would help our workflow a lot.</description>
+    <category>feature_request</category>
+    <priority>medium</priority>
+    <status>new</status>
+    <tags>
+      <tag>escalated</tag>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <browser>Edge</browser>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3021</customer_id>
+    <customer_email>ivan.davis2021@example.com</customer_email>
+    <customer_name>Ivan Davis</customer_name>
+    <subject>Getting a 500 error on checkout</subject>
+    <description>I keep getting a 500 error when trying to check out, this is blocking our purchase and it's important to fix asap.</description>
+    <category>technical_issue</category>
+    <priority>high</priority>
+    <status>waiting_customer</status>
+    <tags>
+      <tag>trial</tag>
+      <tag>escalated</tag>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <browser>Chrome</browser>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3022</customer_id>
+    <customer_email>carol.brown2022@example.com</customer_email>
+    <customer_name>Carol Brown</customer_name>
+    <subject>Production down for our team</subject>
+    <description>Our production environment is down and nothing loads, this is critical and affecting the whole team.</description>
+    <category>technical_issue</category>
+    <priority>urgent</priority>
+    <status>resolved</status>
+    <tags>
+      <tag>enterprise</tag>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <browser>Edge</browser>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3023</customer_id>
+    <customer_email>priya.wilson2023@example.com</customer_email>
+    <customer_name>Priya Wilson</customer_name>
+    <subject>Found a bug in the search filter</subject>
+    <description>I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.</description>
+    <category>bug_report</category>
+    <priority>high</priority>
+    <status>new</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>api</source>
+      <browser>Firefox</browser>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3024</customer_id>
+    <customer_email>heidi.garcia2024@example.com</customer_email>
+    <customer_name>Heidi Garcia</customer_name>
+    <subject>Found a bug in the search filter</subject>
+    <description>I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.</description>
+    <category>bug_report</category>
+    <priority>high</priority>
+    <status>closed</status>
+    <tags>
+      <tag>beta-user</tag>
+    </tags>
+    <metadata>
+      <source>phone</source>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3025</customer_id>
+    <customer_email>rosa.davis2025@example.com</customer_email>
+    <customer_name>Rosa Davis</customer_name>
+    <subject>Question about my invoice</subject>
+    <description>I have a question about a charge on my latest invoice, could you clarify what it was for?</description>
+    <category>billing_question</category>
+    <priority>medium</priority>
+    <status>waiting_customer</status>
+    <tags>
+      <tag>beta-user</tag>
+      <tag>escalated</tag>
+    </tags>
+    <metadata>
+      <source>api</source>
+      <browser>Safari</browser>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3026</customer_id>
+    <customer_email>grace.davis2026@example.com</customer_email>
+    <customer_name>Grace Davis</customer_name>
+    <subject>Forgot my password</subject>
+    <description>I forgot my password and the reset email never arrived, can you help me sign in again?</description>
+    <category>account_access</category>
+    <priority>medium</priority>
+    <status>new</status>
+    <tags>
+      <tag>enterprise</tag>
+      <tag>follow-up</tag>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <browser>Firefox</browser>
+      <device_type>tablet</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3027</customer_id>
+    <customer_email>ivan.taylor2027@example.com</customer_email>
+    <customer_name>Ivan Taylor</customer_name>
+    <subject>Double charged for subscription</subject>
+    <description>I was charged twice for my monthly subscription this billing cycle, this is important and needs a refund.</description>
+    <category>billing_question</category>
+    <priority>high</priority>
+    <status>closed</status>
+    <tags>
+      <tag>escalated</tag>
+      <tag>vip</tag>
+    </tags>
+    <metadata>
+      <source>email</source>
+      <browser>Safari</browser>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3028</customer_id>
+    <customer_email>frank.garcia2028@example.com</customer_email>
+    <customer_name>Frank Garcia</customer_name>
+    <subject>Getting a 500 error on checkout</subject>
+    <description>I keep getting a 500 error when trying to check out, this is blocking our purchase and it's important to fix asap.</description>
+    <category>technical_issue</category>
+    <priority>high</priority>
+    <status>new</status>
+    <tags>
+      <tag>enterprise</tag>
+      <tag>follow-up</tag>
+    </tags>
+    <metadata>
+      <source>api</source>
+      <browser>Chrome</browser>
+      <device_type>desktop</device_type>
+    </metadata>
+  </ticket>
+  <ticket>
+    <customer_id>CUST-3029</customer_id>
+    <customer_email>judy.lee2029@example.com</customer_email>
+    <customer_name>Judy Lee</customer_name>
+    <subject>Suggestion for billing page</subject>
+    <description>Just a minor suggestion, it would be nice if the billing page showed the next renewal date more clearly.</description>
+    <category>billing_question</category>
+    <priority>low</priority>
+    <status>resolved</status>
+    <tags>
+    </tags>
+    <metadata>
+      <source>web_form</source>
+      <device_type>mobile</device_type>
+    </metadata>
+  </ticket>
+</tickets>
