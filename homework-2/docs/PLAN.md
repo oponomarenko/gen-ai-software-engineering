@@ -202,11 +202,11 @@ the minimum required per file; add more only if coverage demands it.
   change-log entry.
 - **Covers:** Task 6 (and the integration/benchmark portions of Task 3).
 
-## Phase 10 — Documentation  ⬜
+## Phase 10 — Documentation  🟡
 **Goal:** four audience-specific docs, ≥3 Mermaid diagrams.
 
 - [x] `README.md` (developers): overview, features, Mermaid architecture diagram, install/setup, run tests, structure. *(Replaces the current homework-1 placeholder README.)*
-- [ ] `docs/API_REFERENCE.md`: every endpoint with request/response + curl, schemas, error formats.
+- [x] `docs/API_REFERENCE.md`: every endpoint with request/response + curl, schemas, error formats. ✅ Clear, consumer-friendly, no complex tech terms, curl examples for all endpoints.
 - [ ] `docs/ARCHITECTURE.md`: **already drafted** — keep in sync as code lands.
 - [ ] `docs/TESTING_GUIDE.md`: test-pyramid Mermaid, how to run, fixture locations, manual checklist, benchmark table.
 - [ ] Note which AI model produced which doc.
@@ -253,7 +253,7 @@ the minimum required per file; add more only if coverage demands it.
 | 7 — Frontend | ✅ | Full React SPA: list/CRUD/import/detail/classification, responsive, API-driven, toast notifications |
 | 8 — Tests & coverage | ✅ | 54 tests (6 files) green, 93% coverage, screenshot saved |
 | 9 — Integration & perf | ✅ | 10 tests (5 integration + 5 performance) green; benchmark table recorded; fixed dead manual-override wiring |
-| 10 — Documentation | ⬜ | ARCHITECTURE.md drafted |
+| 10 — Documentation | 🟡 | API_REFERENCE.md complete (clear, consumer-friendly, all endpoints with curl examples) |
 | 11 — Final verification | ⬜ | |
 
 ---
