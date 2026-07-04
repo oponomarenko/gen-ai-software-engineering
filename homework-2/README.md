@@ -5,6 +5,16 @@
 > **AI Tools Used**: Claude Code — used throughout planning, implementation,
 > testing, and documentation. See [docs/PLAN.md](docs/PLAN.md) and
 > [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) §10 for the phase-by-phase log.
+>
+> **Doc-per-model breakdown** (TASKS.md Task 4 requires different AI models for
+> different doc types):
+>
+> | Doc | Audience | Model |
+> |---|---|---|
+> | README.md (this file) | Developers | Claude Sonnet 5 |
+> | [docs/API_REFERENCE.md](docs/API_REFERENCE.md) | API Consumers | Claude Haiku 4.5 |
+> | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Technical Leads | Claude Opus 4.8 (draft), Claude Fable 5 (review) |
+> | [docs/TESTING_GUIDE.md](docs/TESTING_GUIDE.md) | QA Engineers | Claude Sonnet 5 |
 
 A full-stack ticket management system for support teams: import tickets from CSV,
 JSON, or XML, have them auto-classified by category and priority, and manage them
