@@ -207,7 +207,13 @@ the minimum required per file; add more only if coverage demands it.
 
 - [x] `README.md` (developers): overview, features, Mermaid architecture diagram, install/setup, run tests, structure. *(Replaces the current homework-1 placeholder README.)*
 - [x] `docs/API_REFERENCE.md`: every endpoint with request/response + curl, schemas, error formats. ✅ Clear, consumer-friendly, no complex tech terms, curl examples for all endpoints.
-- [ ] `docs/ARCHITECTURE.md`: **already drafted** — keep in sync as code lands.
+- [x] `docs/ARCHITECTURE.md`: **already drafted** — keep in sync as code lands.
+  ✅ Architect review passed: all Task 4.3 requirements present — Mermaid high-level
+  diagram (§2), component descriptions (§3), two Mermaid sequence diagrams (§6),
+  design decisions & trade-offs (§1), security (§8) and performance (§9)
+  considerations. Claims spot-checked against code (routes, defusedxml, CORS,
+  repo lock, `auto_classify` flag); fixed one drift — frontend `pages/` dir
+  doesn't exist, page views live in `components/`.
 - [ ] `docs/TESTING_GUIDE.md`: test-pyramid Mermaid, how to run, fixture locations, manual checklist, benchmark table.
 - [ ] Note which AI model produced which doc.
 - **Exit criteria:** all four docs complete; ≥3 Mermaid diagrams total across docs.
@@ -253,7 +259,7 @@ the minimum required per file; add more only if coverage demands it.
 | 7 — Frontend | ✅ | Full React SPA: list/CRUD/import/detail/classification, responsive, API-driven, toast notifications |
 | 8 — Tests & coverage | ✅ | 54 tests (6 files) green, 93% coverage, screenshot saved |
 | 9 — Integration & perf | ✅ | 10 tests (5 integration + 5 performance) green; benchmark table recorded; fixed dead manual-override wiring |
-| 10 — Documentation | 🟡 | API_REFERENCE.md complete (clear, consumer-friendly, all endpoints with curl examples) |
+| 10 — Documentation | 🟡 | API_REFERENCE.md and ARCHITECTURE.md complete (architect-reviewed vs Task 4); TESTING_GUIDE.md + AI-model notes remain |
 | 11 — Final verification | ⬜ | |
 
 ---

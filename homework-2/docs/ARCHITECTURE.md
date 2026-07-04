@@ -80,7 +80,8 @@ REST API (no hardcoded ticket data). Responsibilities:
 - **Feedback**: toast/inline messages for success and error states.
 
 Layered structure: `api/` (typed fetch client) → `hooks/` (data fetching/state) →
-`components/` + `pages/` (presentation). Responsive layout for desktop and mobile.
+`components/` (presentation, including the page-level views: list, detail,
+create/edit form, bulk import). Responsive layout for desktop and mobile.
 
 ### 3.2 API Layer (`src/backend/app/api`)
 FastAPI routers that map HTTP endpoints to service calls, handle request/response
@@ -281,9 +282,8 @@ homework-2/
 │   │   ├── src/
 │   │   │   ├── api/               # Typed API client
 │   │   │   ├── hooks/             # Data hooks
-│   │   │   ├── components/        # Reusable UI
-│   │   │   ├── pages/             # List / Detail / Create-Edit / Import
-│   │   │   └── types/            # Shared TS types
+│   │   │   ├── components/        # UI incl. page views (List / Detail / Form / Import)
+│   │   │   └── types/             # Shared TS types
 │   │   ├── package.json / vite.config.ts
 │   │   └── Dockerfile
 │   └── tests/                    # Pytest suite (Task 3 & 6)
