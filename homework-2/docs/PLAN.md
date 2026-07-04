@@ -205,7 +205,7 @@ the minimum required per file; add more only if coverage demands it.
 ## Phase 10 — Documentation  ⬜
 **Goal:** four audience-specific docs, ≥3 Mermaid diagrams.
 
-- [ ] `README.md` (developers): overview, features, Mermaid architecture diagram, install/setup, run tests, structure. *(Replaces the current homework-1 placeholder README.)*
+- [x] `README.md` (developers): overview, features, Mermaid architecture diagram, install/setup, run tests, structure. *(Replaces the current homework-1 placeholder README.)*
 - [ ] `docs/API_REFERENCE.md`: every endpoint with request/response + curl, schemas, error formats.
 - [ ] `docs/ARCHITECTURE.md`: **already drafted** — keep in sync as code lands.
 - [ ] `docs/TESTING_GUIDE.md`: test-pyramid Mermaid, how to run, fixture locations, manual checklist, benchmark table.
