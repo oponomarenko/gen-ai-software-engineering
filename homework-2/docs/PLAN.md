@@ -2,7 +2,7 @@
 
 > **Living document.** Update on any requirement change and mark phase progress here.
 > **Status legend:** ⬜ Not started · 🟡 In progress · ✅ Done · ⛔ Blocked
-> **Last updated:** 2026-07-04 (Phase 7 complete)
+> **Last updated:** 2026-07-04 (Phase 9 complete)
 
 ---
 
@@ -161,26 +161,45 @@ the minimum required per file; add more only if coverage demands it.
   `docs/screenshots/test_coverage.png`.
 - **Covers:** Task 3.
 
-## Phase 9 — Integration & Performance Tests  ⬜
+## Phase 9 — Integration & Performance Tests  ✅
 **Goal:** end-to-end confidence and documented benchmarks.
 
 **Test-file quota (from TASKS.md Task 3 & 6):** 2 files, **10 tests** total. Task 6 names
 4 integration scenarios; a 5th is added to meet the file's 5-test quota.
 
-- [ ] **`test_integration` — 5 tests** (end-to-end, Phase 3–5):
+- [x] **`test_integration` — 5 tests** (end-to-end, Phase 3–5):
   1. **Full ticket lifecycle** — create → auto-classify → status transitions (`new`→`in_progress`→`resolved`, sets `resolved_at`) → delete.
   2. **Bulk import + auto-classify verification** — import a sample file, then assert imported tickets carry expected category/priority/classification.
   3. **Concurrent operations** — 20+ simultaneous requests (mixed create/read) stay consistent; no lost writes or id collisions.
   4. **Combined filtering** — `GET /tickets?category=&priority=` returns only tickets matching *both* criteria.
   5. **(Added)** Manual-override persistence — override a classified ticket via `PUT`, re-fetch, confirm override survives and is not re-computed.
-- [ ] **`test_performance` — 5 tests** (benchmarks, Phase 3–5):
+- [x] **`test_performance` — 5 tests** (benchmarks, Phase 3–5):
   1. Single `POST /tickets` create latency under budget.
   2. `GET /tickets` list latency over a seeded dataset under budget.
   3. Bulk import throughput (e.g., 50-record CSV) under budget.
   4. `POST /tickets/{id}/auto-classify` latency under budget.
   5. Concurrent throughput — 20+ simultaneous requests complete within an aggregate time budget.
-- [ ] Record measured numbers into a **benchmark table** for `docs/TESTING_GUIDE.md` (Phase 10).
+- [x] Record measured numbers into a **benchmark table** for `docs/TESTING_GUIDE.md` (Phase 10).
 - **Exit criteria:** all 10 tests pass; benchmark numbers captured for the testing guide.
+  ✅ 64 tests total pass (54 from Phase 8 + 10 new), coverage 94.77%. Measured locally
+  (TestClient, in-memory repo, single dev machine — see table below):
+
+  | Operation | Measured | Budget in test |
+  |---|---|---|
+  | `POST /tickets` single create | ~29 ms | < 500 ms |
+  | `GET /tickets` list (100 seeded) | ~1.4 ms | < 1000 ms |
+  | Bulk import 50-record CSV (+classify) | ~7 ms | < 3000 ms |
+  | `POST /tickets/{id}/auto-classify` | ~1.2 ms | < 500 ms |
+  | 20 concurrent creates (aggregate) | ~23 ms | < 5000 ms |
+
+  **Note (gap found & fixed during Phase 9):** TASKS.md Task 2 requires "allow manual
+  override" of classification, but it was never wired up through the API — `TicketUpdate`
+  had no way to set `classification`, and `ClassificationService.override()` was dead
+  code. Fixed by having `TicketService.update()` call `override()` whenever `PUT
+  /tickets/{id}` changes `category` and/or `priority`, marking
+  `classification.manual_override=true`. No new endpoint added — matches the API
+  surface already documented in ARCHITECTURE.md §5. See ARCHITECTURE.md §10 for the
+  change-log entry.
 - **Covers:** Task 6 (and the integration/benchmark portions of Task 3).
 
 ## Phase 10 — Documentation  ⬜
@@ -233,7 +252,7 @@ the minimum required per file; add more only if coverage demands it.
 | 6 — Sample data | ✅ | 50 CSV / 20 JSON / 30 XML + 6 invalid files, all verified against the live API |
 | 7 — Frontend | ✅ | Full React SPA: list/CRUD/import/detail/classification, responsive, API-driven, toast notifications |
 | 8 — Tests & coverage | ✅ | 54 tests (6 files) green, 93% coverage, screenshot saved |
-| 9 — Integration & perf | ⬜ | |
+| 9 — Integration & perf | ✅ | 10 tests (5 integration + 5 performance) green; benchmark table recorded; fixed dead manual-override wiring |
 | 10 — Documentation | ⬜ | ARCHITECTURE.md drafted |
 | 11 — Final verification | ⬜ | |
 

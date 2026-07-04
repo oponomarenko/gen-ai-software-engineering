@@ -43,6 +43,10 @@ class TicketService:
         updated.updated_at = datetime.now(timezone.utc)
         if updates.get("status") == Status.resolved and ticket.resolved_at is None:
             updated.resolved_at = updated.updated_at
+        if "category" in updates or "priority" in updates:
+            updated.classification = self._classification_service.override(
+                updated, category=updated.category, priority=updated.priority
+            )
         return self._repository.update(updated)
 
     def delete(self, ticket_id: uuid.UUID) -> None:
