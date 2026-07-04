@@ -102,22 +102,84 @@ invalid files).
 - **Covers:** Task 5.
 
 ## Phase 8 — Automated Tests & Coverage (>85%)  ⬜
-**Goal:** the required suite, green, over threshold.
+**Goal:** the required unit/API/parsing/classification suite, green, over the 85% threshold.
 
-- [ ] Unit + API tests: `test_ticket_model`, `test_ticket_api`, `test_import_csv/json/xml`, `test_categorization`.
-- [ ] `pytest-cov` config with `--cov-fail-under=85`.
+**Test-file quota (from TASKS.md Task 3):** 6 files, **46 tests** total. Counts below are
+the minimum required per file; add more only if coverage demands it.
+
+- [ ] **`test_ticket_model` — 9 tests** (Pydantic validation, Phase 2):
+  1. Valid ticket builds with all fields populated.
+  2. `subject` length boundaries — reject empty and >200 chars, accept 1 & 200.
+  3. `description` length boundaries — reject <10 and >2000, accept 10 & 2000.
+  4. Invalid `customer_email` format rejected.
+  5. Invalid `category` enum value rejected.
+  6. Invalid `priority` enum value rejected.
+  7. Invalid `status` enum value rejected.
+  8. `metadata` validation — bad `source`/`device_type` enum rejected.
+  9. Defaults & nullables — `resolved_at`/`assigned_to` optional, `tags` defaults to `[]`, timestamps auto-set.
+- [ ] **`test_ticket_api` — 11 tests** (endpoints, Phase 3):
+  1. `POST /tickets` → 201 with generated id + timestamps.
+  2. `POST /tickets?auto_classify=true` populates `classification`.
+  3. `POST /tickets` invalid payload → 422 with field errors.
+  4. `GET /tickets` → 200 lists all.
+  5. `GET /tickets?category=` filters by category.
+  6. `GET /tickets?priority=` filters by priority.
+  7. `GET /tickets?status=` filters by status.
+  8. `GET /tickets/{id}` → 200 for existing.
+  9. `GET /tickets/{id}` → 404 for unknown id.
+  10. `PUT /tickets/{id}` → 200 updates; unknown id → 404.
+  11. `DELETE /tickets/{id}` → 204; unknown id → 404.
+- [ ] **`test_import_csv` — 6 tests** (Phase 4):
+  1. Valid CSV → summary `total==successful`, `failed==0`.
+  2. Mixed file → valid rows imported, invalid rows reported per-record with error detail.
+  3. Malformed CSV structure → 400 with meaningful message (not 500).
+  4. Empty file → summary `total==0`.
+  5. Missing required column → per-record validation errors.
+  6. Auto-classification applied to imported rows.
+- [ ] **`test_import_json` — 5 tests** (Phase 4):
+  1. Valid JSON array → all successful.
+  2. Invalid JSON syntax → 400 meaningful error.
+  3. Per-record validation errors reported (bad email/length/enum).
+  4. Wrong shape (object instead of array / missing fields) → 400 or per-record error.
+  5. Empty array → summary `total==0`.
+- [ ] **`test_import_xml` — 5 tests** (Phase 4):
+  1. Valid XML → all successful.
+  2. Malformed XML → 400 meaningful error.
+  3. Per-record validation errors reported.
+  4. **Security:** XXE / external-entity payload is neutralized by `defusedxml` (no file read, safe rejection).
+  5. Empty document / no `<ticket>` records → summary `total==0`.
+- [ ] **`test_categorization` — 10 tests** (rule engine, Phase 5):
+  1–6. Correct category for each of the 6 categories (`account_access`, `technical_issue`, `billing_question`, `feature_request`, `bug_report`, `other`).
+  7. Urgent priority keywords (`can't access`, `critical`, `production down`, `security`).
+  8. High priority keywords (`important`, `blocking`, `asap`).
+  9. Low keywords (`minor`, `cosmetic`, `suggestion`) and Medium as default fallback.
+  10. Result completeness — `confidence` in [0,1], non-empty `reasoning`, correct `keywords_found`, and manual override preserved (not overwritten).
+- [ ] `pytest-cov` config with `--cov=app --cov-report=term-missing --cov-fail-under=85`.
 - [ ] Capture coverage screenshot → `docs/screenshots/test_coverage.png`.
-- **Exit criteria:** `pytest` green; coverage >85% reported.
+- **Exit criteria:** all 46 tests green; overall coverage **>85%** reported; screenshot saved.
 - **Covers:** Task 3.
 
 ## Phase 9 — Integration & Performance Tests  ⬜
-**Goal:** end-to-end confidence and benchmarks.
+**Goal:** end-to-end confidence and documented benchmarks.
 
-- [ ] `test_integration` (5): full lifecycle; import+auto-classify verification; combined category+priority filtering; concurrency (20+ simultaneous requests).
-- [ ] `test_performance` (5): latency/throughput budgets for create, list, import, classify.
-- [ ] Benchmark table for TESTING_GUIDE.
-- **Exit criteria:** integration + perf tests pass and produce benchmark numbers.
-- **Covers:** Task 6.
+**Test-file quota (from TASKS.md Task 3 & 6):** 2 files, **10 tests** total. Task 6 names
+4 integration scenarios; a 5th is added to meet the file's 5-test quota.
+
+- [ ] **`test_integration` — 5 tests** (end-to-end, Phase 3–5):
+  1. **Full ticket lifecycle** — create → auto-classify → status transitions (`new`→`in_progress`→`resolved`, sets `resolved_at`) → delete.
+  2. **Bulk import + auto-classify verification** — import a sample file, then assert imported tickets carry expected category/priority/classification.
+  3. **Concurrent operations** — 20+ simultaneous requests (mixed create/read) stay consistent; no lost writes or id collisions.
+  4. **Combined filtering** — `GET /tickets?category=&priority=` returns only tickets matching *both* criteria.
+  5. **(Added)** Manual-override persistence — override a classified ticket via `PUT`, re-fetch, confirm override survives and is not re-computed.
+- [ ] **`test_performance` — 5 tests** (benchmarks, Phase 3–5):
+  1. Single `POST /tickets` create latency under budget.
+  2. `GET /tickets` list latency over a seeded dataset under budget.
+  3. Bulk import throughput (e.g., 50-record CSV) under budget.
+  4. `POST /tickets/{id}/auto-classify` latency under budget.
+  5. Concurrent throughput — 20+ simultaneous requests complete within an aggregate time budget.
+- [ ] Record measured numbers into a **benchmark table** for `docs/TESTING_GUIDE.md` (Phase 10).
+- **Exit criteria:** all 10 tests pass; benchmark numbers captured for the testing guide.
+- **Covers:** Task 6 (and the integration/benchmark portions of Task 3).
 
 ## Phase 10 — Documentation  ⬜
 **Goal:** four audience-specific docs, ≥3 Mermaid diagrams.
