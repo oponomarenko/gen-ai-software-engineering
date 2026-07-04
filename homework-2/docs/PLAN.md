@@ -2,7 +2,7 @@
 
 > **Living document.** Update on any requirement change and mark phase progress here.
 > **Status legend:** ⬜ Not started · 🟡 In progress · ✅ Done · ⛔ Blocked
-> **Last updated:** 2026-07-04
+> **Last updated:** 2026-07-04 (Phase 7 complete)
 
 ---
 
@@ -88,17 +88,17 @@ invalid files).
 - [x] Mirror minimal fixtures under `src/tests/fixtures/`.
 - **Exit criteria:** all sample files import successfully; invalid files fail with clear errors. ✅ Verified: 50/50, 20/20, 30/30 import; all 6 invalid files fail with 400 or per-record errors as expected.
 
-## Phase 7 — Frontend Application  ⬜
+## Phase 7 — Frontend Application  ✅
 **Goal:** agent-facing SPA, API-driven, responsive.
 
-- [ ] Typed API client + data hooks; shared TS types matching backend schema.
-- [ ] Ticket **List** page with combined category/priority/status filters.
-- [ ] **Create/Edit** forms with client-side validation mirroring API rules.
-- [ ] **Detail** view: metadata + classification result.
-- [ ] **Bulk Import** widget with summary display.
-- [ ] **Auto-classify** action showing category/priority/confidence/reasoning.
-- [ ] Toast/inline success + error feedback; responsive desktop/mobile layout.
-- **Exit criteria:** full agent workflow runs against the live API with no hardcoded ticket data.
+- [x] Typed API client + data hooks; shared TS types matching backend schema.
+- [x] Ticket **List** page with combined category/priority/status filters.
+- [x] **Create/Edit** forms with client-side validation mirroring API rules.
+- [x] **Detail** view: metadata + classification result.
+- [x] **Bulk Import** widget with summary display.
+- [x] **Auto-classify** action showing category/priority/confidence/reasoning.
+- [x] Toast/inline success + error feedback; responsive desktop/mobile layout.
+- **Exit criteria:** full agent workflow runs against the live API with no hardcoded ticket data. ✅
 - **Covers:** Task 5.
 
 ## Phase 8 — Automated Tests & Coverage (>85%)  ⬜
@@ -167,7 +167,7 @@ invalid files).
 | 4 — Import | ✅ | CSV/JSON/XML parsers + ImportService, defusedxml for XML |
 | 5 — Classification | ✅ | Rule engine + ClassificationService, wired into create/import/auto-classify |
 | 6 — Sample data | ✅ | 50 CSV / 20 JSON / 30 XML + 6 invalid files, all verified against the live API |
-| 7 — Frontend | ⬜ | Vite skeleton only so far; full SPA (list/CRUD/import/detail) still pending |
+| 7 — Frontend | ✅ | Full React SPA: list/CRUD/import/detail/classification, responsive, API-driven, toast notifications |
 | 8 — Tests & coverage | ⬜ | |
 | 9 — Integration & perf | ⬜ | |
 | 10 — Documentation | ⬜ | ARCHITECTURE.md drafted |
