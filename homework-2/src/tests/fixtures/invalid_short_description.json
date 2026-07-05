@@ -1,0 +1,11 @@
+{
+  "tickets": [
+    {
+      "customer_id": "CUST-9002",
+      "customer_email": "test@example.com",
+      "customer_name": "Test User",
+      "subject": "Hi",
+      "description": "short"
+    }
+  ]
+}

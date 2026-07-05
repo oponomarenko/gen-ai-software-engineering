@@ -1,0 +1,356 @@
+{
+  "tickets": [
+    {
+      "customer_id": "CUST-2000",
+      "customer_email": "frank.miller1000@example.com",
+      "customer_name": "Frank Miller",
+      "subject": "Regression in the dashboard widget",
+      "description": "There is a regression in the dashboard widget after the last update, expected behavior was to show totals but it now shows zero.",
+      "category": "bug_report",
+      "priority": "medium",
+      "status": "new",
+      "tags": [],
+      "metadata": {
+        "source": "api",
+        "browser": "Edge",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2001",
+      "customer_email": "heidi.garcia1001@example.com",
+      "customer_name": "Heidi Garcia",
+      "subject": "General feedback about the product",
+      "description": "I just wanted to share some general feedback about my overall experience with the product so far.",
+      "category": "other",
+      "priority": "medium",
+      "status": "in_progress",
+      "tags": [
+        "vip",
+        "beta-user"
+      ],
+      "metadata": {
+        "source": "web_form",
+        "browser": "Edge",
+        "device_type": "desktop"
+      }
+    },
+    {
+      "customer_id": "CUST-2002",
+      "customer_email": "omar.davis1002@example.com",
+      "customer_name": "Omar Davis",
+      "subject": "Production down for our team",
+      "description": "Our production environment is down and nothing loads, this is critical and affecting the whole team.",
+      "category": "technical_issue",
+      "priority": "urgent",
+      "status": "waiting_customer",
+      "tags": [],
+      "metadata": {
+        "source": "email",
+        "browser": "Chrome",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2003",
+      "customer_email": "mona.davis1003@example.com",
+      "customer_name": "Mona Davis",
+      "subject": "Production down for our team",
+      "description": "Our production environment is down and nothing loads, this is critical and affecting the whole team.",
+      "category": "technical_issue",
+      "priority": "urgent",
+      "status": "waiting_customer",
+      "tags": [],
+      "metadata": {
+        "source": "api",
+        "browser": "Safari",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2004",
+      "customer_email": "mona.moore1004@example.com",
+      "customer_name": "Mona Moore",
+      "subject": "Suggestion for billing page",
+      "description": "Just a minor suggestion, it would be nice if the billing page showed the next renewal date more clearly.",
+      "category": "billing_question",
+      "priority": "low",
+      "status": "waiting_customer",
+      "tags": [],
+      "metadata": {
+        "source": "web_form",
+        "browser": "Safari",
+        "device_type": "desktop"
+      }
+    },
+    {
+      "customer_id": "CUST-2005",
+      "customer_email": "ivan.smith1005@example.com",
+      "customer_name": "Ivan Smith",
+      "subject": "Add dark mode please",
+      "description": "It would be great if you could add a dark mode option, purely a cosmetic suggestion but many users want it.",
+      "category": "feature_request",
+      "priority": "low",
+      "status": "new",
+      "tags": [
+        "beta-user",
+        "escalated"
+      ],
+      "metadata": {
+        "source": "api",
+        "browser": "Edge",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2006",
+      "customer_email": "dave.miller1006@example.com",
+      "customer_name": "Dave Miller",
+      "subject": "Suggestion for billing page",
+      "description": "Just a minor suggestion, it would be nice if the billing page showed the next renewal date more clearly.",
+      "category": "billing_question",
+      "priority": "low",
+      "status": "closed",
+      "tags": [],
+      "metadata": {
+        "source": "api",
+        "browser": "Chrome",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2007",
+      "customer_email": "alice.moore1007@example.com",
+      "customer_name": "Alice Moore",
+      "subject": "Question about my invoice",
+      "description": "I have a question about a charge on my latest invoice, could you clarify what it was for?",
+      "category": "billing_question",
+      "priority": "medium",
+      "status": "closed",
+      "tags": [
+        "trial",
+        "follow-up"
+      ],
+      "metadata": {
+        "source": "api",
+        "browser": "Edge",
+        "device_type": "desktop"
+      }
+    },
+    {
+      "customer_id": "CUST-2008",
+      "customer_email": "karl.taylor1008@example.com",
+      "customer_name": "Karl Taylor",
+      "subject": "Request for CSV export",
+      "description": "Could you add support for exporting reports as CSV? This feature request would help our workflow a lot.",
+      "category": "feature_request",
+      "priority": "medium",
+      "status": "waiting_customer",
+      "tags": [
+        "vip",
+        "escalated"
+      ],
+      "metadata": {
+        "source": "phone",
+        "browser": "Safari",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2009",
+      "customer_email": "karl.miller1009@example.com",
+      "customer_name": "Karl Miller",
+      "subject": "Question about my invoice",
+      "description": "I have a question about a charge on my latest invoice, could you clarify what it was for?",
+      "category": "billing_question",
+      "priority": "medium",
+      "status": "waiting_customer",
+      "tags": [
+        "follow-up",
+        "trial"
+      ],
+      "metadata": {
+        "source": "chat",
+        "browser": "Edge",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2010",
+      "customer_email": "frank.taylor1010@example.com",
+      "customer_name": "Frank Taylor",
+      "subject": "Found a bug in the search filter",
+      "description": "I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.",
+      "category": "bug_report",
+      "priority": "high",
+      "status": "closed",
+      "tags": [
+        "beta-user"
+      ],
+      "metadata": {
+        "source": "phone",
+        "browser": "Chrome",
+        "device_type": "mobile"
+      }
+    },
+    {
+      "customer_id": "CUST-2011",
+      "customer_email": "grace.miller1011@example.com",
+      "customer_name": "Grace Miller",
+      "subject": "App keeps freezing",
+      "description": "The application freezes randomly after a few minutes of use, it is quite annoying but not breaking anything.",
+      "category": "technical_issue",
+      "priority": "medium",
+      "status": "closed",
+      "tags": [
+        "trial",
+        "escalated"
+      ],
+      "metadata": {
+        "source": "chat",
+        "browser": "Edge",
+        "device_type": "mobile"
+      }
+    },
+    {
+      "customer_id": "CUST-2012",
+      "customer_email": "grace.moore1012@example.com",
+      "customer_name": "Grace Moore",
+      "subject": "Request for CSV export",
+      "description": "Could you add support for exporting reports as CSV? This feature request would help our workflow a lot.",
+      "category": "feature_request",
+      "priority": "medium",
+      "status": "resolved",
+      "tags": [
+        "follow-up",
+        "vip"
+      ],
+      "metadata": {
+        "source": "api",
+        "browser": null,
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2013",
+      "customer_email": "tara.davis1013@example.com",
+      "customer_name": "Tara Davis",
+      "subject": "Request for CSV export",
+      "description": "Could you add support for exporting reports as CSV? This feature request would help our workflow a lot.",
+      "category": "feature_request",
+      "priority": "medium",
+      "status": "new",
+      "tags": [],
+      "metadata": {
+        "source": "api",
+        "browser": "Firefox",
+        "device_type": "desktop"
+      }
+    },
+    {
+      "customer_id": "CUST-2014",
+      "customer_email": "alice.smith1014@example.com",
+      "customer_name": "Alice Smith",
+      "subject": "2FA code not working",
+      "description": "My two-factor authentication code is not being accepted and this is blocking me from logging in, it's important.",
+      "category": "account_access",
+      "priority": "high",
+      "status": "in_progress",
+      "tags": [
+        "enterprise"
+      ],
+      "metadata": {
+        "source": "web_form",
+        "browser": "Edge",
+        "device_type": "mobile"
+      }
+    },
+    {
+      "customer_id": "CUST-2015",
+      "customer_email": "sam.brown1015@example.com",
+      "customer_name": "Sam Brown",
+      "subject": "Minor cosmetic issue on profile page",
+      "description": "There is a minor cosmetic issue on the profile page where the avatar is slightly misaligned, just a suggestion to fix it.",
+      "category": "other",
+      "priority": "low",
+      "status": "resolved",
+      "tags": [
+        "beta-user"
+      ],
+      "metadata": {
+        "source": "email",
+        "browser": "Firefox",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2016",
+      "customer_email": "alice.johnson1016@example.com",
+      "customer_name": "Alice Johnson",
+      "subject": "Found a bug in the search filter",
+      "description": "I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.",
+      "category": "bug_report",
+      "priority": "high",
+      "status": "resolved",
+      "tags": [],
+      "metadata": {
+        "source": "email",
+        "browser": null,
+        "device_type": "mobile"
+      }
+    },
+    {
+      "customer_id": "CUST-2017",
+      "customer_email": "rosa.brown1017@example.com",
+      "customer_name": "Rosa Brown",
+      "subject": "Can't access my account",
+      "description": "I can't access my account since this morning, I've tried resetting my password twice and it is critical I get back in.",
+      "category": "account_access",
+      "priority": "urgent",
+      "status": "new",
+      "tags": [
+        "follow-up"
+      ],
+      "metadata": {
+        "source": "chat",
+        "browser": null,
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2018",
+      "customer_email": "karl.wilson1018@example.com",
+      "customer_name": "Karl Wilson",
+      "subject": "Add dark mode please",
+      "description": "It would be great if you could add a dark mode option, purely a cosmetic suggestion but many users want it.",
+      "category": "feature_request",
+      "priority": "low",
+      "status": "closed",
+      "tags": [
+        "enterprise",
+        "beta-user"
+      ],
+      "metadata": {
+        "source": "phone",
+        "browser": "Edge",
+        "device_type": "desktop"
+      }
+    },
+    {
+      "customer_id": "CUST-2019",
+      "customer_email": "priya.wilson1019@example.com",
+      "customer_name": "Priya Wilson",
+      "subject": "Found a bug in the search filter",
+      "description": "I found a bug in the search filter, steps to reproduce: search for any term then apply a filter, the results reset. This is blocking my work.",
+      "category": "bug_report",
+      "priority": "high",
+      "status": "waiting_customer",
+      "tags": [],
+      "metadata": {
+        "source": "api",
+        "browser": null,
+        "device_type": "mobile"
+      }
+    }
+  ]
+}

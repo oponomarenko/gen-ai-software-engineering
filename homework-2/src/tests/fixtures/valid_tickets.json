@@ -1,0 +1,55 @@
+{
+  "tickets": [
+    {
+      "customer_id": "CUST-2000",
+      "customer_email": "frank.miller1000@example.com",
+      "customer_name": "Frank Miller",
+      "subject": "Regression in the dashboard widget",
+      "description": "There is a regression in the dashboard widget after the last update, expected behavior was to show totals but it now shows zero.",
+      "category": "bug_report",
+      "priority": "medium",
+      "status": "new",
+      "tags": [],
+      "metadata": {
+        "source": "api",
+        "browser": "Edge",
+        "device_type": "tablet"
+      }
+    },
+    {
+      "customer_id": "CUST-2001",
+      "customer_email": "heidi.garcia1001@example.com",
+      "customer_name": "Heidi Garcia",
+      "subject": "General feedback about the product",
+      "description": "I just wanted to share some general feedback about my overall experience with the product so far.",
+      "category": "other",
+      "priority": "medium",
+      "status": "in_progress",
+      "tags": [
+        "vip",
+        "beta-user"
+      ],
+      "metadata": {
+        "source": "web_form",
+        "browser": "Edge",
+        "device_type": "desktop"
+      }
+    },
+    {
+      "customer_id": "CUST-2002",
+      "customer_email": "omar.davis1002@example.com",
+      "customer_name": "Omar Davis",
+      "subject": "Production down for our team",
+      "description": "Our production environment is down and nothing loads, this is critical and affecting the whole team.",
+      "category": "technical_issue",
+      "priority": "urgent",
+      "status": "waiting_customer",
+      "tags": [],
+      "metadata": {
+        "source": "email",
+        "browser": "Chrome",
+        "device_type": "tablet"
+      }
+    }
+  ]
+}

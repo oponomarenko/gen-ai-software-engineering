@@ -1,0 +1,2 @@
+customer_id,customer_email,customer_name,subject,description
+CUST-9004,test@example.com,"Unterminated quote,Subject,Description that is long enough
