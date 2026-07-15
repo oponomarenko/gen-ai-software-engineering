@@ -14,7 +14,7 @@
 |------|---------|
 | [`specification.md`](specification.md) | The layered spec: objectives → non-functional/policy → implementation notes → context → low-level tasks, with edge-cases, verification, and performance integrated. |
 | [`agents.md`](agents.md) | AI agent guidelines: stack, banking domain rules, style, testing/verification, security/compliance, edge-case handling. |
-| [`CLAUDE.md`](CLAUDE.md) | Claude Code project rules: FinTech-safe defaults, naming/patterns, what to avoid, when to stop and flag. |
+| [`CLAUDE.md`](CLAUDE.md) | How Claude Code *operates* here: working style, stop-and-flag escalation triggers, PR/commit conventions. Defers to `agents.md` for domain rules (no duplication). |
 | `README.md` | This file — rationale and industry best-practice mapping. |
 
 ### Scope in one line
@@ -35,6 +35,8 @@ The service **produces and explains a risk score (0–1000) for a single authori
 
 - **How I chose verification depth.** Because this is regulated and inline, the risky behaviors are *failure* behaviors. So verification emphasizes **fault-injection** (each dependency failure must prove fail-open), **reconciliation** (score↔audit 1:1, version fields non-null), and **compliance checkpoints** (no PII persisted, append-only audit, dual-control config). Several low-level tasks end in checkable **Acceptance Criteria** so an implementer can tick them off.
 
+- **`agents.md` vs `CLAUDE.md` — one home per concern.** To avoid repeating rules across files, `agents.md` is the single source of truth for the *domain, engineering, security, and testing rules the code must satisfy* (tool-agnostic), while `CLAUDE.md` covers only *how Claude Code operates* — working style, stop-and-flag escalation, and PR conventions — and defers to `agents.md` for the substance. Both files open with the same "division of responsibility" note so the boundary is explicit.
+
 - **Traceability by construction.** The spec ends with a Traceability Summary mapping every MO → tasks + NFRs + edge cases, so nothing is orphaned and every task earns its place.
 
 ---
@@ -43,19 +45,19 @@ The service **produces and explains a risk score (0–1000) for a single authori
 
 | Best practice | Where it appears |
 |---------------|------------------|
-| **Fail-open for inline dependencies** (never block legitimate spend on a scorer outage) | `specification.md` → Implementation Notes, MO-5, NFR-3, Edge E1/E13, "rejected alternative" note; `agents.md` §3; `CLAUDE.md` default #2 |
-| **Never store/log PAN/CVV; tokenized card refs + masking** | `specification.md` → NFR-5, Edge E7, Tasks 1 & 9; `agents.md` §3; `CLAUDE.md` default #1 |
-| **Immutable, append-only, tamper-evident audit trail; audit reads too** | `specification.md` → MO-3, NFR-7, Tasks 9 & 10, Edge E11; `agents.md` §3/§6; `CLAUDE.md` default #6 |
-| **Idempotency on retries/replays** | `specification.md` → MO-2, Implementation Notes, Task 3, Edge E4/E5; `agents.md` §3; `CLAUDE.md` default #4 |
-| **Determinism & reproducibility of scores** | `specification.md` → MO-2, Implementation Notes, Task 6, Edge E12; `CLAUDE.md` default #3 |
-| **Model & config version traceability** | `specification.md` → MO-4, Tasks 5/6/7, Edge E9/E10; `CLAUDE.md` default #5 |
-| **Dual-control change governance for risk logic** | `specification.md` → MO-7, NFR-8, Tasks 11/12, Edge E9; `agents.md` §3; `CLAUDE.md` default #7 |
+| **Fail-open for inline dependencies** (never block legitimate spend on a scorer outage) | `specification.md` → Implementation Notes, MO-5, NFR-3, Edge E1/E13, "rejected alternative" note; `agents.md` §3; `CLAUDE.md` Stop-and-flag triggers |
+| **Never store/log PAN/CVV; tokenized card refs + masking** | `specification.md` → NFR-5, Edge E7, Tasks 1 & 9; `agents.md` §3; `CLAUDE.md` Stop-and-flag triggers |
+| **Immutable, append-only, tamper-evident audit trail; audit reads too** | `specification.md` → MO-3, NFR-7, Tasks 9 & 10, Edge E11; `agents.md` §3/§6; `CLAUDE.md` Stop-and-flag triggers |
+| **Idempotency on retries/replays** | `specification.md` → MO-2, Implementation Notes, Task 3, Edge E4/E5; `agents.md` §3 |
+| **Determinism & reproducibility of scores** | `specification.md` → MO-2, Implementation Notes, Task 6, Edge E12; `agents.md` §3 |
+| **Model & config version traceability** | `specification.md` → MO-4, Tasks 5/6/7, Edge E9/E10; `agents.md` §3; `CLAUDE.md` Stop-and-flag triggers |
+| **Dual-control change governance for risk logic** | `specification.md` → MO-7, NFR-8, Tasks 11/12, Edge E9; `agents.md` §3; `CLAUDE.md` Stop-and-flag triggers |
 | **Decimal money handling + ISO-4217 currency** | `specification.md` → Implementation Notes, Task 1, Edge E6; `agents.md` §2/§4 |
-| **Least-privilege RBAC + deny-by-default on sensitive reads** | `specification.md` → MO-6, NFR-5, Task 10, Edge E11; `agents.md` §6; `CLAUDE.md` avoid-list |
+| **Least-privilege RBAC + deny-by-default on sensitive reads** | `specification.md` → MO-6, NFR-5, Task 10, Edge E11; `agents.md` §6 |
 | **SLOs & golden-signal observability tied to budgets** | `specification.md` → NFR-1/3/9, Task 13, Performance table; `agents.md` §5 |
 | **Data minimization & retention/purge (GDPR/CCPA-aware)** | `specification.md` → NFR-6; `agents.md` §6 |
-| **Explainability via a closed, versioned reason-code taxonomy** | `specification.md` → MO-3, Implementation Notes, Task 11; `agents.md` §3 |
-| **Read-only w.r.t. money (no side effects on funds/accounts)** | `specification.md` → NFR-8, Edge E15; `agents.md` §1; `CLAUDE.md` "is not" |
+| **Explainability via a closed, versioned reason-code taxonomy** | `specification.md` → MO-3, Implementation Notes, Task 11; `agents.md` §3/§4 |
+| **Read-only w.r.t. money (no side effects on funds/accounts)** | `specification.md` → NFR-8, Edge E15; `agents.md` §1; `CLAUDE.md` Stop-and-flag triggers |
 | **Graceful degradation with explicit stale/missing-feature handling** | `specification.md` → NFR-4, MO-5, Tasks 4/8, Edge E2/E3/E8 |
 
 ---

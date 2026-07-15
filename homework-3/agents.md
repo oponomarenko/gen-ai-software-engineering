@@ -1,6 +1,11 @@
 # agents.md — AI Agent Guidelines for the Fraud Detection Scoring Service
 
-> These rules configure any AI coding partner (Claude Code in particular) working in this repository. They make the agent behave consistently and safely for a **regulated FinTech** codebase. Read this together with [`specification.md`](specification.md). Where they overlap, the specification is the source of truth for *what* to build; this file governs *how* the agent works.
+> These rules configure any AI coding partner (tool-agnostic) working in this repository. They make the agent behave consistently and safely for a **regulated FinTech** codebase. Read this together with [`specification.md`](specification.md).
+
+**Division of responsibility (to avoid duplication):**
+- [`specification.md`](specification.md) — **what** to build (objectives, tasks, edge cases, acceptance criteria).
+- **`agents.md` (this file)** — **the domain, engineering, security, and testing rules the code must satisfy.** This is the single source of truth for domain rules and is tool-agnostic.
+- [`CLAUDE.md`](CLAUDE.md) — **how Claude Code should *operate*** in this repo (workflow, escalation, PR conventions). It defers to this file for domain rules and does not repeat them.
 
 ---
 
@@ -47,6 +52,7 @@
 - No secrets, tokens, or PII in code, comments, logs, test fixtures, or commit messages.
 - Prefer pure functions for scoring/normalization so they are trivially testable and deterministic.
 - Currency-aware money handling; amounts always paired with an ISO-4217 currency.
+- Reason codes come only from the active **versioned taxonomy** — unknown codes must be impossible by construction.
 
 ---
 
@@ -69,13 +75,12 @@
 
 ---
 
-## 7. How the agent should handle edge cases & ambiguity
+## 7. Edge-case handling policy
 
-- When a task touches a scoring input, **always** consider: stale/missing feature, model timeout, duplicate key, invalid amount, PAN present, cold-start, config outage, clock skew. Map each to the expected behavior in the edge-case table.
-- Prefer **idempotent writes** and **fail-safe defaults** whenever behavior under failure is unspecified.
-- If a request would violate a rule in this file (log a PAN, add a money side effect, implement fail-closed as default, skip audit, hot-edit risk logic), **stop and flag it** rather than complying.
-- If scope is unclear or the request drifts toward decisioning/case-management/model-training, **ask** rather than guessing — those are out of scope.
-- Cite the relevant `specification.md` section (MO/NFR/Task/Edge id) in PR descriptions so reviewers can trace changes to requirements.
+- The edge-case table (E1–E15) in `specification.md` is **authoritative** for expected behavior. These input conditions are first-class, never afterthoughts: stale/missing feature, model timeout, duplicate/replayed key, invalid amount, PAN present, cold-start, config outage, clock skew.
+- When failure behavior is unspecified, the safe default is **fail-open + idempotent write + audit record** — never fail-closed, never a silent skip.
+
+> Operational conduct (when to stop and escalate, how to reference these rules in a PR) is Claude Code's responsibility and lives in [`CLAUDE.md`](CLAUDE.md), not here.
 
 ---
 
